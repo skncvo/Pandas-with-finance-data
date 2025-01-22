@@ -1,6 +1,6 @@
 import pandas as pd
 
-path = "C:/Users/82108/Desktop/2nd winter/Pandas/Data/삼성전자 종가.csv"
+path = "C:/Users/xxx/Desktop/2nd winter/Pandas/Data/삼성전자 종가.csv"
 
 # index_col = 0 == 첫 번째 값을 인덱스로이용
 # index_col = 1 == 두 번째 값을 인덱스로이용
