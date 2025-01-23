@@ -32,8 +32,8 @@ series_samsung = pd.concat([series1_samsung, series2_samsung], ignore_index = Fa
 series_samsung.max()
 series_samsung.min()
 # numpy의 array의 인덱스 값이 나오기 떄문에 [0]을 붙어야됨.
+# .max()는 값 하나, .values는 np.array이다. 이 둘의 비교가 가능한 이유는 브로드 캐스팅 덕분
 print(series_samsung.index[series_samsung.max() == series_samsung.values][0])
-
 
 
 # series의 고점과 저점의 인덱스 찾기
