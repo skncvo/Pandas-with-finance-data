@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 path = "C:/Users/82108/Desktop/2nd winter/Pandas/Data/삼성전자 종가.csv"
 
@@ -47,9 +48,20 @@ print(series_samsung.describe())
 # 수익률 == (값 - 전날 값)전날 값 == pct_change()
 # (series_samsung - series_samsung.shift(1))/series_samsung.shift(1)
 samsung_return = series_samsung.pct_change()
+samsung_return = samsung_return * 100 # %로 변환
 print(samsung_return.max()) # 최대 수익률
 print(samsung_return.index[samsung_return.argmax()]) # 최대 수익률 낸 날짜
 
+# values가 특정 조건을 만족할 때
+print(samsung_return[samsung_return>=4]) # 인덱스와 값
+print(samsung_return.index[samsung_return >= 4]) # 인덱스
+print(samsung_return.values[samsung_return >= 4]) # 값
+print(sum(samsung_return[samsung_return>=4])) # 개수
+
+#np.where(조건문, 참일때 값, 거짓일 때 값) == npdarray를 만듦, 새로운 시리즈 생성
+samsung_return_over = pd.Series(np.where(samsung_return >=4, "Over 4%", "Under"))
+samsung_return_over.index = samsung_return.index
+print(samsung_return_over)
 
 # NaN 값
 samsung_return.dropna() #NaN 값 제거
@@ -62,3 +74,5 @@ print(samsung_price.sort_index(ascending = False))
 # value 순으로 정렬, ascending = True : 오름차순, ascending = False : 내림차순
 samsung_price.sort_values()
 print(samsung_price.sort_values(ascending = False))
+
+
