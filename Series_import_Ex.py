@@ -49,3 +49,16 @@ print(series_samsung.describe())
 samsung_return = series_samsung.pct_change()
 print(samsung_return.max()) # 최대 수익률
 print(samsung_return.index[samsung_return.argmax()]) # 최대 수익률 낸 날짜
+
+
+# NaN 값
+samsung_return.dropna() #NaN 값 제거
+samsung_return.fillna(0) #NaN 값 채우기
+
+# 정렬
+# index 순으로 정렬, ascending = True : 오름차순, ascending = False : 내림차순
+samsung_price.sort_index(ascending = True)
+print(samsung_price.sort_index(ascending = False))
+# value 순으로 정렬, ascending = True : 오름차순, ascending = False : 내림차순
+samsung_price.sort_values()
+print(samsung_price.sort_values(ascending = False))
