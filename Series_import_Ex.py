@@ -29,8 +29,9 @@ series2_samsung = pd.read_excel(path_series_samsung, sheet_name= 'Sheet2', index
 series_samsung = pd.concat([series1_samsung, series2_samsung], ignore_index = False)
 
 # series의 고점과 저점
-series_samsung.max()
-series_samsung.min()
+print(series_samsung.max())
+print(series_samsung.min())
+
 # numpy의 array의 인덱스 값이 나오기 떄문에 [0]을 붙어야됨.
 # .max()는 값 하나, .values는 np.array이다. 이 둘의 비교가 가능한 이유는 브로드 캐스팅 덕분
 print(series_samsung.index[series_samsung.max() == series_samsung.values][0])
@@ -43,5 +44,8 @@ print(series_samsung.index[series_samsung.argmax()]) #인덱스
 # series의 통계치
 print(series_samsung.describe())
 
-
-
+# 수익률 == (값 - 전날 값)전날 값 == pct_change()
+# (series_samsung - series_samsung.shift(1))/series_samsung.shift(1)
+samsung_return = series_samsung.pct_change()
+print(samsung_return.max()) # 최대 수익률
+print(samsung_return.index[samsung_return.argmax()]) # 최대 수익률 낸 날짜
