@@ -31,7 +31,10 @@ series_samsung = pd.concat([series1_samsung, series2_samsung], ignore_index = Fa
 # series의 고점과 저점
 series_samsung.max()
 series_samsung.min()
-print(series_samsung.index[series_samsung.values == series_samsung.max()]) #argmax 쓰셈
+# numpy의 array의 인덱스 값이 나오기 떄문에 [0]을 붙어야됨.
+print(series_samsung.index[series_samsung.max() == series_samsung.values][0])
+
+
 
 # series의 고점과 저점의 인덱스 찾기
 print(series_samsung.iloc[series_samsung.argmax()]) #값
@@ -39,4 +42,6 @@ print(series_samsung.index[series_samsung.argmax()]) #인덱스
 
 # series의 통계치
 print(series_samsung.describe())
+
+
 
