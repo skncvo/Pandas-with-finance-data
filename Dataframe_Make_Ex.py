@@ -36,4 +36,14 @@ Lotte_df = pd.DataFrame(Lotte)
 #print(Lotte_df.iloc[[1,2,3]])
 #print(Lotte_df.iloc[10:15])
 
-print(Lotte_df[['Open', 'Close', 'Change']])
+# colunms
+#print(Lotte_df[['Open', 'Close', 'Change']])
+
+# 열 추가
+#Lotte_df = Lotte_df[Lotte_df.columns[:-1]]
+#Lotte_df['Return'] = Lotte_df["Close"].pct_change().fillna(0)
+#print(Lotte_df)
+
+# 행 추가
+#Lotte_df.loc['2021-12-23'] = 0
+#print(Lotte_df)
